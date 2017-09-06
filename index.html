@@ -1,0 +1,465 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Fox and Owl</title>
+    <meta name="author" content="Marc Friederich">
+    <style media="screen">
+    *{
+      box-sizing: border-box;
+    }
+    body{
+      margin: 0;
+      padding: 0;
+      font-family: "Helvetica Neue";
+      background-color: #EE6027;
+      }
+      .fox{
+        overflow: hidden;
+        width: 100%;
+      }
+        .head-top{
+          display: flex;
+          justify-content: space-between;
+          border-bottom: 2vmax solid white;
+        }
+      .hear{
+        width: 0;
+        height: 0;
+        border-style: solid;
+        border-width: 0 15vmax 25vmax 15vmax;
+        border-color: transparent transparent white transparent;
+        position: relative;
+        margin-bottom: 3vmax;
+      }
+      .hear:after{
+        content: "";
+        width: 0;
+        height: 0;
+        border-style: solid;
+        border-width: 0 15vmax 25vmax 15vmax;
+        border-color: transparent transparent #EE6027 transparent;
+        position: absolute;
+        top: 5vmax;
+        left:-15vmax;
+      }
+      .hear-left{
+         transform-origin: 0% 0%;
+         transform: rotate(10deg);
+      }
+      .hear-right{
+         transform-origin: 100% 0%;
+         transform: rotate(-10deg);
+      }
+      .eyes{
+        display: flex;
+        justify-content: space-around;
+        align-items: flex-end;
+        height: 26vmax;
+      }
+      .eye{
+        width: 8vmax;
+        height: 8vmax;
+        background-color: white;
+        border-radius: 4vmax;
+        position: relative;
+      }
+      .eye-ball{
+        width: 6vmax;
+        height: 6vmax;
+        background-color: black;
+        border-radius: 3vmax;
+        position: absolute;
+        top: 0.3vmax;
+        left: 0.3vmax;
+      }
+      .muzzle{
+        display: flex;
+        height: 40vmax;
+        align-items: flex-end;
+      }
+      .moustache{
+        flex: 1;
+      }
+      .moustache-inner{
+        width: 140%;
+        z-index: -1;
+        height: 6vmax;
+        border-top-left-radius: 100%;
+        border-top-right-radius: 100%;
+        background-color: white;
+      }
+      .moustache-left{
+        transform-origin: 100% 100%;
+        transform: rotate(36deg);
+        margin-left: -40%;
+      }
+      .moustache-right{
+        transform-origin: 0 100%;
+        transform: rotate(-36deg);
+        margin-right: -40%;
+      }
+      .nose{
+        flex-basis: 8vmax;
+        width: 8vmax;
+        height: 4vmax;
+        border-top-left-radius: 4vmax;
+        border-top-right-radius: 4vmax;
+        background-color: black;
+        border: white 1vmax solid;
+        border-bottom-width: 0.6vmax;
+      }
+      .bow-tie{
+        margin-top: -5vmax;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      .bow-node{
+        height: 6vmax;
+        width: 8vmax;
+        background-color: white;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        z-index: 1;
+      }
+      .bow-wing{
+        width: 0;
+        height: 0;
+        border-style: solid;
+        position: relative;
+
+      }
+      .bow-wing .hole{
+        position: absolute;
+        z-index: 10;
+      }
+      .bow-wing .hole:first-child{ top: -8vmax; }
+      .bow-wing .hole:nth-child(2){ top: -1.5vmax; }
+      .bow-wing .hole:nth-child(3){ top: 5.5vmax; }
+      .bow-wing-left .hole:first-child{ right: 15vmax; }
+      .bow-wing-left .hole:nth-child(2){ right: 10vmax; }
+      .bow-wing-left .hole:nth-child(3){ right: 15vmax; }
+      .bow-wing-right .hole:first-child{ left: 15vmax; }
+      .bow-wing-right .hole:nth-child(2){ left: 10vmax; }
+      .bow-wing-right .hole:nth-child(3){ left: 15vmax; }
+      .bow-wing-right{
+        margin-left: -5vmax;
+        border-width: 12vmax 20vmax 12vmax 0;
+        border-color: transparent white transparent transparent;
+      }
+      .bow-wing-left{
+        margin-right: -5vmax;
+        border-width: 12vmax 0 12vmax 20vmax;
+        border-color: transparent transparent transparent white;
+      }
+      .hole{
+        background-color: #EE6027;
+        width: 3vmax;
+        height: 3vmax;
+        border-radius: 1.5vmax;
+      }
+      h1{
+        margin: 0;
+        padding: 10vmax 1vmax;
+        font-size: 8vmax;
+        color: white;
+        text-align: center;
+      }
+
+      .fox-2-owl{
+        border-top: 2vmax white solid;
+        background-color: #cccccc;
+        height: 16vmax;
+      }
+      .owl{
+        background-color: #cccccc;
+        overflow: hidden;
+        width: 100%;
+      }
+      .owl .head-top{
+        border-bottom-color:black;
+      }
+      .owl .hear{
+        border-color: transparent transparent black transparent;
+      }
+      .owl .inner-hear{
+        content: "";
+        width: 0;
+        height: 0;
+        border-style: solid;
+        border-width: 0 4vmax 10vmax 6vmax;
+        border-color: transparent transparent black transparent;
+        position: absolute;
+        z-index:8;
+        top: 18.5vmax;
+        left: -5vmax;
+      }
+      .owl .hear-left .inner-hear{
+         transform-origin: 0% 0%;
+         transform: rotate(-10deg);
+      }
+      .owl .hear-right .inner-hear{
+        border-width: 0 6vmax 10vmax 4vmax;
+        transform-origin: 100% 0%;
+        transform: rotate(10deg);
+      }
+      .owl .hear:after{
+        border-color: transparent transparent #cccccc transparent;
+      }
+      .owl-glasses{
+        margin-top: 5vmax;
+        display: flex;
+        width: 106vw;
+        margin-left: -3vw;
+      }
+      .owl-glass{
+        border: 2.5vmax solid #a60e00;
+        border-radius: 10vmax;
+        flex: 1;
+        height: 48vmax;
+        width: 105%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-color: #cccccc;
+      }
+      .owl-glass-right{
+        margin-left: -1vmax;
+      }
+      .owl-glass-left{
+        margin-right: -1vmax;
+      }
+      .owl-eye{
+        width: 12vmax;
+        height: 6vmax;
+        border-bottom-left-radius: 8vmax;
+        border-bottom-right-radius: 8vmax;
+        border: black 1.6vmax solid;
+        border-top-width: 0;
+      }
+      .owl-glass-right .owl-eye{
+        animation-duration: 2000ms;
+        animation-timing-function: ease-in-out;
+        animation-name: blink;
+        animation-iteration-count: infinite;
+        animation-direction: alternate;
+      }
+      @keyframes blink {
+          0% {
+              height: 6vmax;
+          }
+          90% {
+              height: 6vmax;
+          }
+          100% {
+              height: 0vmax;
+          }
+      }
+      .owl-nose{
+        margin: -5vmax auto 0;
+        width: 12vmax;
+        height: 12vmax;
+        border: 2vmax black solid;
+        border-top-width: 0;
+        border-left-width: 0;
+        transform-origin: 60% 55%;
+        transform: rotate(45deg);
+      }
+      .owl-belly{
+        padding-top: 4vmax;
+        height: 60vmax;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+      }
+      .owl-belly span{
+        width: 0;
+        height: 0;
+        border-style: solid;
+        border-width: 0 5vmax 8vmax 5vmax;
+        border-color: transparent transparent black transparent;
+        margin: 2vmax;
+      }
+    </style>
+    <script type="text/javascript">
+    function moveEyes(event){
+      var left = ((window.innerWidth - event.pageX));
+      var top = ((window.innerHeight - event.pageY));
+
+      var rad = Math.atan2(top, left);
+
+			var eyeLeft = document.getElementById("eye-left");
+			eyeLeft.style.webkitTransform = "rotate(" + rad + "rad)";
+      var eyeRight = document.getElementById("eye-right");
+			eyeRight.style.webkitTransform = "rotate(" + rad + "rad)";
+		}
+    </script>
+  </head>
+  <body onmousemove="moveEyes(event)">
+    <div class="fox">
+      <div class="head-top">
+        <div class="hear hear-left">
+        </div>
+        <div class="hear hear-right">
+        </div>
+      </div>
+      <div class="eyes">
+        <div class="eye" id="eye-left">
+          <div class="eye-ball">
+          </div>
+        </div>
+        <div class="eye" id="eye-right">
+          <div class="eye-ball">
+          </div>
+        </div>
+      </div>
+      <div class="muzzle">
+        <div class="moustache">
+          <div class="moustache-inner moustache-left">
+          </div>
+        </div>
+        <div class="nose">
+        </div>
+        <div class="moustache">
+          <div class="moustache-inner moustache-right">
+          </div>
+        </div>
+      </div>
+      <div class="bow-tie">
+        <div class="bow-wing bow-wing-left">
+          <div class="hole">
+          </div>
+          <div class="hole">
+          </div>
+          <div class="hole">
+          </div>
+        </div>
+        <div class="bow-node">
+          <div class="hole">
+          </div>
+        </div>
+        <div class="bow-wing bow-wing-right">
+          <div class="hole">
+          </div>
+          <div class="hole">
+          </div>
+          <div class="hole">
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="wrapper">
+      <h1 contenteditable="true">Click me and Name the fox, name the owl</h1>
+    </div>
+
+    <div class="fox-2-owl">
+
+    </div>
+    <div class="owl">
+      <div class="head-top">
+        <div class="hear hear-left">
+          <div class="inner-hear">
+          </div>
+        </div>
+        <div class="hear hear-right">
+          <div class="inner-hear">
+          </div>
+        </div>
+      </div>
+      <div class="owl-glasses">
+        <div class="owl-glass owl-glass-left">
+          <div class="owl-eye">
+          </div>
+        </div>
+        <div class="owl-glass owl-glass-right">
+          <div class="owl-eye">
+          </div>
+        </div>
+      </div>
+      <div class="owl-nose">
+      </div>
+      <div class="owl-belly">
+        <span>
+          <!-- ▲ -->
+        </span>
+        <span>
+          <!-- ▲ -->
+        </span>
+        <span>
+          <!-- ▲ -->
+        </span>
+        <span>
+          <!-- ▲ -->
+        </span>
+        <span>
+          <!-- ▲ -->
+        </span>
+        <span>
+          <!-- ▲ -->
+        </span>
+        <span>
+          <!-- ▲ -->
+        </span>
+        <span>
+          <!-- ▲ -->
+        </span>
+        <span>
+          <!-- ▲ -->
+        </span>
+        <span>
+          <!-- ▲ -->
+        </span>
+        <span>
+          <!-- ▲ -->
+        </span>
+        <span>
+          <!-- ▲ -->
+        </span>
+        <span>
+          <!-- ▲ -->
+        </span>
+        <span>
+          <!-- ▲ -->
+        </span>
+        <span>
+          <!-- ▲ -->
+        </span>
+        <span>
+          <!-- ▲ -->
+        </span>
+        <span>
+          <!-- ▲ -->
+        </span>
+        <span>
+          <!-- ▲ -->
+        </span>
+        <span>
+          <!-- ▲ -->
+        </span>
+        <span>
+          <!-- ▲ -->
+        </span>
+        <span>
+          <!-- ▲ -->
+        </span>
+        <span>
+          <!-- ▲ -->
+        </span>
+        <span>
+          <!-- ▲ -->
+        </span>
+        <span>
+          <!-- ▲ -->
+        </span>
+        <span>
+          <!-- ▲ -->
+        </span>
+        <span>
+          <!-- ▲ -->
+        </span>
+      </div>
+    </div>
+  </body>
+</html>
